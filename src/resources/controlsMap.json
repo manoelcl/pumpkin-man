@@ -1,0 +1,14 @@
+{
+  "0": {
+    "KeyW": 0,
+    "KeyD": 1,
+    "KeyS": 2,
+    "KeyA": 3
+  },
+  "1": {
+    "ArrowUp": 0,
+    "ArrowRight": 1,
+    "ArrowDown": 2,
+    "ArrowLeft": 3
+  }
+}
