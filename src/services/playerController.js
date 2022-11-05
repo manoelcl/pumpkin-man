@@ -1,3 +1,5 @@
+const DIRECTION_TO_ROTATION = [Math.PI, 0.5 * Math.PI, 0, -0.5 * Math.PI, 0];
+
 const playerController = (
   player,
   selectedDirection,
@@ -55,7 +57,9 @@ const playerController = (
         currentDirection.current = selectedDirection;
       break;
   }
-  console.log(currentCell);
+  /* console.log(currentCell); */
+  /* console.log("current direction", currentDirection); */
+  player.current.rotation.y = DIRECTION_TO_ROTATION[currentDirection.current];
   switch (currentDirection.current) {
     case 0:
       if (
@@ -102,7 +106,7 @@ const playerController = (
       break;
 
     default:
-      console.log(currentDirection);
+      /* console.log(currentDirection); */
       break;
   }
 };

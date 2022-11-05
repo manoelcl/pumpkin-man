@@ -1,62 +1,33 @@
-import { useState } from "react";
-import { findCoordinates } from "../helpers/main";
-import levels from "../resources/levels.json";
+import { GameContext } from "../context/GameContext";
+import { useContext, useState } from "react";
+import { findCoordinates } from "../helpers";
 import Candy from "./Candy";
 import Player from "./Player";
-
 const CELL_SIZE = 1;
 
 const Map = ({ level = 1 }) => {
-  const P1_Start = findCoordinates(levels[level], 2);
-  const P2_Start = findCoordinates(levels[level], 3);
+  const { levels, levelsInfo } = useContext(GameContext);
+  const P1_Start = levelsInfo[level].players[0].coords;
+  const P2_Start = levelsInfo[level].players[1].coords;
+  const walls = levelsInfo[level].walls;
+  const candies = levelsInfo[level].candies;
 
   const [interactableCells, setInteractableCells] = useState(levels[level]);
 
   return (
     <>
-      {interactableCells.map((cellRow, row) =>
-        cellRow.map((cell, column) =>
-          cell === 1 ? (
-            <mesh
-              key={`${column}${row}`}
-              position={[
-                CELL_SIZE * (-column + (cellRow.length - 1) * 0.5),
-                -0.25,
-                CELL_SIZE * (-row + (cellRow.length - 1) * 0.5),
-              ]}
-              castShadow
-              receiveShadow
-            >
-              <boxGeometry />
-              <meshStandardMaterial color={[0.1, 0.51, 0.1]} />
-            </mesh>
-          ) : null
-        )
-      )}
-      {interactableCells.map((cellRow, row) =>
-        cellRow.map((cell, column) =>
-          cell === 0 ? (
-            <Candy
-              key={`${column}${row}`}
-              position={[
-                CELL_SIZE * (-column + (cellRow.length - 1) / 2),
-                0.1,
-                CELL_SIZE * (-row + (cellRow.length - 1) / 2),
-              ]}
-            ></Candy>
-          ) : null
-        )
-      )}
-      {
-        <Player
-          position={[
-            CELL_SIZE * (-P1_Start[0] + (levels[level][0].length - 1) * 0.5),
-            0.25,
-            CELL_SIZE * (-P1_Start[1] + (levels[level].length - 1) * 0.5),
-          ]}
-          level={levels[level]}
-        />
-      }
+      {walls.map((cell) => (
+        <mesh key={cell.id} position={cell.coords} castShadow receiveShadow>
+          <boxGeometry />
+          <meshStandardMaterial color={[0.05, 0.1, 0.03]} />
+        </mesh>
+      ))}
+
+      {candies.map((cell) => (
+        <Candy key={cell.id} position={cell.coords} />
+      ))}
+      <Player position={P1_Start} level={levels[level]} />
+      <Player position={P2_Start} playerNumber={"1"} level={levels[level]} />
     </>
   );
 };

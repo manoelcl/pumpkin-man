@@ -1,10 +1,11 @@
 import { Canvas } from "@react-three/fiber";
-import { useState } from "react";
+import { useContext } from "react";
 import "./App.css";
 import Map from "./components/Map";
+import { GameContext } from "./context/GameContext";
 
 function App() {
-  const [level, setLevel] = useState(1);
+  const { level } = useContext(GameContext);
   const shadowArea = 5;
 
   return (
@@ -25,7 +26,7 @@ function App() {
         <Map level={level} />
         <mesh scale={[12, 0.01, 12]} receiveShadow>
           <boxGeometry />
-          <meshStandardMaterial />
+          <meshStandardMaterial color={"grey"} />
         </mesh>
       </Canvas>
     </div>
