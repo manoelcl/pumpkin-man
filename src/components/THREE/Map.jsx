@@ -1,6 +1,6 @@
-import { GameContext } from "../context/GameContext";
+import { GameContext } from "../../context/GameContext";
 import { useContext, useState } from "react";
-import { findCoordinates } from "../helpers";
+import { findCoordinates } from "../../helpers";
 import Candy from "./Candy";
 import Player from "./Player";
 const CELL_SIZE = 1;
