@@ -11,8 +11,8 @@ const Game = () => {
       <directionalLight
         position={[4, 4, -2]}
         castShadow
-        shadow-mapSize-height={512}
-        shadow-mapSize-width={512}
+        shadow-mapSize-height={1024}
+        shadow-mapSize-width={1024}
         shadow-camera-left={shadowArea}
         shadow-camera-right={-shadowArea}
         shadow-camera-bottom={-shadowArea}
