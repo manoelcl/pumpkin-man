@@ -33,7 +33,7 @@ export default function Pumpkin(props) {
     }
   }, [model]);
 
-  useFrame(({ clock }, delta) => {
+  useFrame((state, delta) => {
     mixer.current?.update(delta);
   });
 

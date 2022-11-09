@@ -3,10 +3,12 @@ import { useContext, useState } from "react";
 import { findCoordinates } from "../../helpers";
 import Candy from "./Candy";
 import Player from "./Player";
+import Enemy from "./Enemy";
 const CELL_SIZE = 1;
 
 const Map = ({ level = 1 }) => {
   const { levels, levelsInfo } = useContext(GameContext);
+  const players = 0;
   const P1_Start = levelsInfo[level].players[0].coords;
   const P2_Start = levelsInfo[level].players[1].coords;
   const walls = levelsInfo[level].walls;
@@ -27,7 +29,10 @@ const Map = ({ level = 1 }) => {
         <Candy key={cell.id} position={cell.coords} />
       ))}
       <Player position={P1_Start} level={levels[level]} />
-      <Player position={P2_Start} playerNumber={"1"} level={levels[level]} />
+      {players > 0 ? (
+        <Player position={P2_Start} playerNumber={"1"} level={levels[level]} />
+      ) : null}
+      <Enemy position={P2_Start} level={levels[level]}></Enemy>
     </>
   );
 };
