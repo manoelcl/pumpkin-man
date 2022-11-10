@@ -4,6 +4,7 @@ import useKeys from "../../hooks/useKeys";
 import useRandomWalk from "../../hooks/useRandomWalk";
 import manageEvents from "../../services/manageEvents";
 import playerController from "../../services/playerController";
+import Ghost from "./Ghost";
 import Pumpkin from "./Pumpkin";
 
 const Enemy = ({ position, enemyID = 0, level }) => {
@@ -27,7 +28,7 @@ const Enemy = ({ position, enemyID = 0, level }) => {
 
   return (
     <group position={position} ref={player}>
-      <Pumpkin />
+      <Ghost></Ghost>
     </group>
   );
 };

@@ -6,7 +6,7 @@ import { AnimationMixer, LoopRepeat } from "three";
 import { useFrame } from "@react-three/fiber";
 import { castShadows } from "../../helpers";
 
-export default function Pumpkin(props) {
+export default function Ghost(props) {
   const group = useRef();
   const [model, set] = useState(null);
 
@@ -14,7 +14,7 @@ export default function Pumpkin(props) {
 
   useEffect(() => {
     console.log("enter");
-    if (!model) return new GLTFLoader().load("/models/pumpkin_anim2.glb", set);
+    if (!model) return new GLTFLoader().load("/models/ghost.glb", set);
     castShadows(model); /* 
     model.material.color = "green"; */
     console.log(model);

@@ -80,7 +80,7 @@ const playerController = (
   player.current.rotation.y = DIRECTION_TO_ROTATION[currentDirection.current];
   switch (currentDirection.current) {
     case 0:
-      console.log("north");
+      /* console.log("north"); */
       if (
         absolutePosition[1].toFixed(1) === currentCell[1].toFixed(1) &&
         level[currentCell[1] - 1][currentCell[0]] === 1
@@ -98,7 +98,7 @@ const playerController = (
       player.current.position.z += speed * delta;
       break;
     case 1:
-      console.log("east");
+      /* console.log("east"); */
       if (
         absolutePosition[0].toFixed(1) === currentCell[0].toFixed(1) &&
         level[currentCell[1]][currentCell[0] + 1] === 1
@@ -116,7 +116,7 @@ const playerController = (
       player.current.position.x -= speed * delta;
       break;
     case 2:
-      console.log("south");
+      /* console.log("south"); */
       if (
         absolutePosition[1].toFixed(1) === currentCell[1].toFixed(1) &&
         level[currentCell[1] + 1][currentCell[0]] === 1
@@ -134,7 +134,7 @@ const playerController = (
       player.current.position.z -= speed * delta;
       break;
     case 3:
-      console.log("west");
+      /* console.log("west"); */
       if (
         absolutePosition[0].toFixed(1) === currentCell[0].toFixed(1) &&
         level[currentCell[1]][currentCell[0] - 1] === 1
