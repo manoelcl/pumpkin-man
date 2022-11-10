@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useState, useEffect } from "react";
 import controlsMap from "../resources/controlsMap.json";
 
@@ -7,16 +8,16 @@ function actionByKey(key, playerNumber = "0") {
 }
 
 export const useKeys = (playerNumber) => {
-  const [direction, setDirection] = useState();
+  const direction = useRef();
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (isNaN(actionByKey(e.code, playerNumber))) return;
-      setDirection(actionByKey(e.code, playerNumber));
+      direction.current = actionByKey(e.code, playerNumber);
     };
     const handleKeyUp = (e) => {
       if (isNaN(actionByKey(e.code, playerNumber))) return;
-      setDirection(undefined);
+      direction.current = undefined;
     };
 
     document.addEventListener("keydown", handleKeyDown);

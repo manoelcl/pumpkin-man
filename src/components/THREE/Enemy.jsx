@@ -9,11 +9,19 @@ import Pumpkin from "./Pumpkin";
 const Enemy = ({ position, enemyID = 0, level }) => {
   const player = useRef();
   const currentDirection = useRef(4);
-  const selectedDirection = useRandomWalk();
+  const selectedDirection = useRef(1);
+  useRandomWalk(selectedDirection);
   let speed = 4;
 
   useFrame((state, delta) => {
-    playerController(player, selectedDirection, currentDirection, speed, level);
+    playerController(
+      player,
+      selectedDirection,
+      currentDirection,
+      speed,
+      level,
+      false
+    );
     manageEvents();
   });
 

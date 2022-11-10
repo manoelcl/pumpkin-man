@@ -33,6 +33,9 @@ const Map = ({ level = 1 }) => {
         <Player position={P2_Start} playerNumber={"1"} level={levels[level]} />
       ) : null}
       <Enemy position={P2_Start} level={levels[level]}></Enemy>
+      <Enemy position={P2_Start} level={levels[level]}></Enemy>
+      <Enemy position={P2_Start} level={levels[level]}></Enemy>
+      <Enemy position={P2_Start} level={levels[level]}></Enemy>
     </>
   );
 };
