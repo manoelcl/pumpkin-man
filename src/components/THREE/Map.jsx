@@ -32,10 +32,10 @@ const Map = ({ level = 1 }) => {
       {players > 0 ? (
         <Player position={P2_Start} playerNumber={"1"} level={levels[level]} />
       ) : null}
-      <Enemy position={P2_Start} level={levels[level]}></Enemy>
-      <Enemy position={P2_Start} level={levels[level]}></Enemy>
-      <Enemy position={P2_Start} level={levels[level]}></Enemy>
-      <Enemy position={P2_Start} level={levels[level]}></Enemy>
+      <Enemy number={1} position={P2_Start} level={levels[level]}></Enemy>
+      <Enemy number={2} position={P2_Start} level={levels[level]}></Enemy>
+      <Enemy number={3} position={P2_Start} level={levels[level]}></Enemy>
+      <Enemy number={4} position={P2_Start} level={levels[level]}></Enemy>
     </>
   );
 };

@@ -7,7 +7,7 @@ import playerController from "../../services/playerController";
 import Ghost from "./Ghost";
 import Pumpkin from "./Pumpkin";
 
-const Enemy = ({ position, enemyID = 0, level }) => {
+const Enemy = ({ position, enemyID = 0, level, number }) => {
   const player = useRef();
   const currentDirection = useRef(4);
   const selectedDirection = useRef(1);
@@ -28,7 +28,7 @@ const Enemy = ({ position, enemyID = 0, level }) => {
 
   return (
     <group position={position} ref={player}>
-      <Ghost></Ghost>
+      <Ghost number={number} />
     </group>
   );
 };
