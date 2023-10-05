@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="container absolute bottom-0 p-1 text-left text-2xl text-orange-700   ">
+    <footer className="container absolute bottom-0 p-1 text-left text-2xl text-orange-700">
       Manoel Castro, 2022. Follow me at:{" "}
       <a
         className=" text-orange-500 hover:text-orange-200"

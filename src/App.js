@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/game" element={<Game />} />
+          <Route path="/game/:players" element={<Game />} />
           <Route path="/ranking" element={<Ranking />} />
         </Routes>
         <Footer />
