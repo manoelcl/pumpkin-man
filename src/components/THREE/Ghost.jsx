@@ -27,10 +27,11 @@ export default function Ghost(props) {
         },
         vertexShader: `
           uniform float time;
-          
           varying vec3 vNormal;
+          varying vec2 vUv;
 
           void main() {
+            vUv = uv;
             vec3 pos = position;
             vNormal = normal;
             pos += vNormal * sin(time * 10.0 + position.x * 10.0) * 0.05 * clamp(1.0 - position.y * 1.1, 0.0, 1.0);
@@ -40,9 +41,10 @@ export default function Ghost(props) {
         fragmentShader: `
           uniform vec3 color;
           varying vec3 vNormal;
+          varying vec2 vUv;
 
           void main() {
-            gl_FragColor = vec4(color, 1.0);
+            gl_FragColor = vec4(vec3(vUv.r,vUv.g,0.0), 1.0);
           }
         `,
       }),

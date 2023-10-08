@@ -15,22 +15,22 @@ const Landing = () => {
       >
         PUMPKIN-MAN
       </h1>
-      <ul className={"text-2xl text-orange-700"}>
+      <ul className={"text-2xl text-orange-500"}>
         <li
           onClick={() => navigate("/game/1")}
-          className={"cursor-pointer hover:font-bold hover:text-orange-500"}
+          className={"cursor-pointer hover:font-bold hover:text-orange-200"}
         >
           1 player
         </li>
         <li
           onClick={() => navigate("/game/2")}
-          className={"cursor-pointer hover:font-bold hover:text-orange-500"}
+          className={"cursor-pointer hover:font-bold hover:text-orange-200"}
         >
           2 player
         </li>
         <li
           onClick={() => navigate("/ranking")}
-          className={"cursor-pointer hover:font-bold hover:text-orange-500"}
+          className={"cursor-pointer hover:font-bold hover:text-orange-200"}
         >
           Ranking
         </li>
@@ -49,10 +49,10 @@ const Landing = () => {
         />
         <ambientLight intensity={0.1} />
         <Pumpkin rotation={[0, -0.3, 0]}></Pumpkin>
-        <Ghost scale={[-1, 1, 1]} position={[1.5, 0, 1]}></Ghost>
-        <Ghost position={[0.5, 0, 1.5]}></Ghost>
-        <Ghost position={[-0.5, 0, 1.5]}></Ghost>
-        <Ghost position={[-1.5, 0, 1]}></Ghost>
+        <Ghost number={1} scale={[-1, 1, 1]} position={[1.5, 0, 1]}></Ghost>
+        <Ghost number={2} position={[0.5, 0, 1.5]}></Ghost>
+        <Ghost number={3} position={[-0.5, 0, 1.5]}></Ghost>
+        <Ghost number={4} position={[-1.5, 0, 1]}></Ghost>
       </Canvas>
     </>
   );
